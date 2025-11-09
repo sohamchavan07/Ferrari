@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 9 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 9 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 9 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Ferrari-specific design tokens */
+    --ferrari-red: 9 100% 50%;
+    --ferrari-dark: 0 0% 7%;
+    --ferrari-darker: 0 0% 4%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(9 100% 50% / 0.15) 0%, hsl(0 0% 7%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(9 100% 50%) 0%, hsl(9 100% 40%) 100%);
+    --gradient-radial: radial-gradient(circle at center, hsl(9 100% 50% / 0.2) 0%, transparent 70%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(9 100% 50% / 0.3);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.8);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
