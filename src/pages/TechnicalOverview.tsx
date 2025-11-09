@@ -272,24 +272,6 @@ const TechnicalOverview = () => {
               </div>
             </div>
           </section>
-
-          {/* CTA */}
-          <div className="text-center bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 rounded-2xl p-12">
-            <h2 className="text-3xl font-bold mb-4">Want to Learn More?</h2>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Download the complete technical documentation including architecture diagrams, 
-              API specifications, and implementation guidelines.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-10"
-              asChild
-            >
-              <a href="/ferrari-devops-case-study.pdf" download>
-                Download Full Documentation
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </div>

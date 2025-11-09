@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, AlertCircle, Zap, BarChart3, GitBranch, Cloud, Clock, TrendingUp, Gauge, Play, Linkedin, Instagram, Facebook, Youtube, ArrowRight } from "lucide-react";
+import { ChevronDown, AlertCircle, Zap, BarChart3, GitBranch, Cloud, Clock, TrendingUp, Gauge, Play, Linkedin, Instagram, Facebook, Youtube, ArrowRight, Twitter } from "lucide-react";
 import { X as XIcon } from "lucide-react";
 import heroImage from "@/assets/ferrari-f1-hero.jpg";
 import ferrariSF90 from "@/assets/ferrari-sf90.jpg";
@@ -473,6 +473,15 @@ const Index = () => {
           {/* Social Media Icons */}
           <div className="flex items-center justify-center gap-4 mb-8">
             <a 
+              href="https://www.youtube.com/user/ferrariworld" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-5 h-5" />
+            </a>
+            <a 
               href="https://www.linkedin.com/company/ferrari" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -482,7 +491,7 @@ const Index = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a 
-              href="https://www.instagram.com/ferrari/" 
+              href="https://www.instagram.com/ferrari/#" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
@@ -491,7 +500,7 @@ const Index = () => {
               <Instagram className="w-5 h-5" />
             </a>
             <a 
-              href="https://www.facebook.com/Ferrari/" 
+              href="https://www.facebook.com/Ferrari" 
               target="_blank" 
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
@@ -499,28 +508,20 @@ const Index = () => {
             >
               <Facebook className="w-5 h-5" />
             </a>
-            <a 
-              href="https://twitter.com/Ferrari" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="X (Twitter)"
-            >
-              <XIcon className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://www.youtube.com/ferrari" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="YouTube"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
           </div>
           
           <div className="text-center text-sm text-muted-foreground pt-8 border-t border-border">
-            <p>© 2025 Ferrari DevOps Case Study. All rights reserved.</p>
+            <p>© 2025 Ferrari DevOps Case Study. All rights reserved Made by.</p>
+            <p>
+              <a
+              href="https://www.sohamchavan.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-red-500 decoration-2 underline-offset-2 text-red-500"
+              >
+               SOHAM
+              </a>
+            </p>
           </div>
         </div>
       </footer>

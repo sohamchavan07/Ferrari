@@ -8,6 +8,7 @@ import PipelineSimulator from "./pages/PipelineSimulator";
 import TechnicalOverview from "./pages/TechnicalOverview";
 import Infrastructure from "./pages/Infrastructure";
 import AzureTools from "./pages/AzureTools";
+import Models from "./pages/models";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/technical-overview" element={<TechnicalOverview />} />
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/azure-tools" element={<AzureTools />} />
+          <Route path="/models" element={<Models />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

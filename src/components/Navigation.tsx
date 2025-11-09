@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ferrariLogo from "@/assets/ferrari-logo.png";
@@ -7,10 +7,12 @@ import ferrariLogo from "@/assets/ferrari-logo.png";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/pipeline", label: "Pipeline Simulator" },
+    { path: "/models", label: "models" },
     { path: "/technical-overview", label: "Technical Overview" },
     { path: "/infrastructure", label: "Infrastructure" },
     { path: "/azure-tools", label: "Azure Tools" },
@@ -30,28 +32,46 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                  isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button
-              size="sm"
-              className="ml-4 bg-primary hover:bg-primary/90 text-primary-foreground"
-              asChild
-            >
-              <a href="/ferrari-devops-case-study.pdf" download>
-                Download PDF
-              </a>
-            </Button>
+            {navLinks.map((link) => {
+              // special handling for the models section: scroll on same page or navigate with state
+              if (link.path === "/models") {
+                return (
+                  <button
+                    key={link.path}
+                    onClick={() => {
+                      if (location.pathname === "/") {
+                        document.getElementById('models')?.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        // navigate to home and instruct it to scroll to models
+                        navigate('/', { state: { scrollTo: 'models' } });
+                      }
+                      setIsOpen(false);
+                    }}
+                    className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                      isActive(link.path)
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                    isActive(link.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -66,29 +86,45 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-2 animate-fade-in">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className={`block px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                  isActive(link.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button
-              size="sm"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-              asChild
-            >
-              <a href="/ferrari-devops-case-study.pdf" download>
-                Download PDF
-              </a>
-            </Button>
+            {navLinks.map((link) => {
+              if (link.path === "/models") {
+                return (
+                  <button
+                    key={link.path}
+                    onClick={() => {
+                      if (location.pathname === "/") {
+                        document.getElementById('models')?.scrollIntoView({ behavior: 'smooth' });
+                      } else {
+                        navigate('/', { state: { scrollTo: 'models' } });
+                      }
+                      setIsOpen(false);
+                    }}
+                    className={`block px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                      isActive(link.path)
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    }`}
+                  >
+                    {link.label}
+                  </button>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                    isActive(link.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>
