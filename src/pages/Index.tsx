@@ -5,12 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown, AlertCircle, Zap, BarChart3, GitBranch, Cloud, Clock, TrendingUp, Gauge, Play, Linkedin, Instagram, Facebook, Youtube, ArrowRight, Twitter } from "lucide-react";
 import { X as XIcon } from "lucide-react";
 import heroImage from "@/assets/ferrari-f1-hero.jpg";
-import ferrariSF90 from "@/assets/ferrari-sf90.jpg";
-import ferrari296GTB from "@/assets/ferrari-296gtb.jpg";
-import ferrariRoma from "@/assets/ferrari-roma.jpg";
-import ferrariPurosangue from "@/assets/ferrari-purosangue.jpg";
-import ferrari812 from "@/assets/ferrari-812.jpg";
-import ferrariDaytona from "@/assets/ferrari-daytona.jpg";
+import ferrariLogo from "@/assets/ferrari-logo.png";
 
 const Index = () => {
   const [countersVisible, setCountersVisible] = useState(false);
@@ -68,100 +63,6 @@ const Index = () => {
         
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <ChevronDown className="h-8 w-8 text-primary/60" />
-        </div>
-      </section>
-
-      {/* Ferrari Models Section */}
-      <section className="py-24 px-4 relative">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(9_100%_50%_/_0.08),transparent_50%)]" />
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 animate-fade-in">
-            <div className="inline-block px-6 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20">
-              <span className="text-primary font-semibold text-sm tracking-wider uppercase">Our Range</span>
-            </div>
-            <h2 className="text-5xl font-bold mb-6">Ferrari Models</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Explore the pinnacle of automotive engineering and Italian design
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "SF90 Stradale",
-                description: "Plug-in hybrid supercar with 1000 CV",
-                image: ferrariSF90,
-                category: "Supercars"
-              },
-              {
-                name: "296 GTB",
-                description: "V6 hybrid with unprecedented versatility",
-                image: ferrari296GTB,
-                category: "Sports Cars"
-              },
-              {
-                name: "Roma",
-                description: "Contemporary elegance meets timeless style",
-                image: ferrariRoma,
-                category: "GT"
-              },
-              {
-                name: "Purosangue",
-                description: "Ferrari's first four-door, four-seater",
-                image: ferrariPurosangue,
-                category: "Crossover"
-              },
-              {
-                name: "812 Competizione",
-                description: "Naturally aspirated V12 masterpiece",
-                image: ferrari812,
-                category: "Supercars"
-              },
-              {
-                name: "Daytona SP3",
-                description: "Limited edition Icona series",
-                image: ferrariDaytona,
-                category: "Icona"
-              }
-            ].map((model, index) => (
-              <div 
-                key={model.name}
-                className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_40px_hsl(9_100%_50%_/_0.2)] animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <img 
-                    src={model.image} 
-                    alt={model.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-4 py-1 bg-primary/90 text-primary-foreground text-xs font-semibold rounded-full backdrop-blur-sm">
-                      {model.category}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {model.name}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {model.description}
-                  </p>
-                  <Button 
-                    variant="ghost" 
-                    className="group/btn p-0 h-auto font-semibold text-primary hover:text-primary hover:bg-transparent"
-                  >
-                    Discover More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -440,86 +341,114 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-8">
-            <p className="text-lg font-semibold mb-4">Built by Soham Chavan — Full Stack Developer</p>
-            <div className="flex flex-wrap justify-center gap-8 text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <span className="text-primary text-xs font-bold">RR</span>
-                </div>
-                <span>Ruby on Rails</span>
+      <footer className="border-t border-border py-12 px-4 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5/0 via-primary/5 to-transparent" />
+        <div className="max-w-7xl mx-auto relative">
+          <div className="grid gap-10 md:grid-cols-3 items-start mb-10">
+            {/* Brand */}
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-3 mb-4">
+                <img
+                  src={ferrariLogo}
+                  alt="Ferrari logo"
+                  className="h-8 w-auto"
+                  loading="lazy"
+                />
+                <span className="font-semibold tracking-wide">Ferrari DevOps</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <span className="text-primary text-xs font-bold">R</span>
-                </div>
-                <span>React</span>
+              <p className="text-sm text-muted-foreground max-w-sm md:max-w-xs">
+                Precision engineering meets cloud-native delivery. This case study showcases how Ferrari accelerates software with Azure DevOps.
+              </p>
+            </div>
+
+            {/* Quick links */}
+            <div className="text-center">
+              <h4 className="text-sm font-semibold tracking-wider mb-4 text-muted-foreground">Quick Links</h4>
+              <div className="flex flex-wrap justify-center gap-2">
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection('challenge')}>
+                  Challenge
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection('results')}>
+                  Results
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection('challenge')}>
+                  Solution
+                </Button>
+                <Button variant="ghost" size="sm" onClick={() => scrollToSection('results')}>
+                  Impact
+                </Button>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <span className="text-primary text-xs font-bold">TW</span>
-                </div>
-                <span>TailwindCSS</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Cloud className="w-8 h-8 text-primary" />
-                <span>Azure</span>
+            </div>
+
+            {/* Social */}
+            <div className="md:justify-self-end">
+              <h4 className="text-sm font-semibold tracking-wider mb-4 text-center md:text-right text-muted-foreground">
+                Follow Ferrari
+              </h4>
+              <div className="flex items-center justify-center md:justify-end gap-3">
+                <a
+                  href="https://www.youtube.com/user/ferrariworld"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ferrari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://twitter.com/Ferrari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/ferrari/#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://www.facebook.com/Ferrari"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
-          
-          {/* Social Media Icons */}
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <a 
-              href="https://www.youtube.com/user/ferrariworld" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="YouTube"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://www.linkedin.com/company/ferrari" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://www.instagram.com/ferrari/#" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://www.facebook.com/Ferrari" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-3 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-5 h-5" />
-            </a>
-          </div>
-          
-          <div className="text-center text-sm text-muted-foreground pt-8 border-t border-border">
-            <p>© 2025 Ferrari DevOps Case Study. All rights reserved Made by.</p>
-            <p>
+
+          {/* Bottom bar */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border text-sm text-muted-foreground">
+            <p className="text-center md:text-left">
+              © {new Date().getFullYear()} Ferrari DevOps Case Study. Educational purpose.
+            </p>
+            <p className="inline-flex items-center gap-1">
+              Made by
               <a
-              href="https://www.sohamchavan.site/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-red-500 decoration-2 underline-offset-2 text-red-500"
+                href="https://www.sohamchavan.site/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 underline decoration-red-500 decoration-2 underline-offset-4 text-red-500 hover:text-red-400 transition-colors"
               >
-               SOHAM
+                SOHAM <ArrowRight className="w-4 h-4" />
               </a>
             </p>
           </div>
